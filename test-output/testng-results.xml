@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="920" started-at="2018-07-25T08:43:52Z" finished-at="2018-07-25T08:43:53Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="920" started-at="2018-07-25T08:43:52Z" finished-at="2018-07-25T08:43:53Z">
+      <class name="tests.SmokeTests">
+        <test-method status="PASS" signature="getExcelData()[pri:0, instance:tests.SmokeTests@30a3107a]" name="getExcelData" duration-ms="901" started-at="2018-07-25T08:43:52Z" finished-at="2018-07-25T08:43:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getExcelData -->
+      </class> <!-- tests.SmokeTests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
