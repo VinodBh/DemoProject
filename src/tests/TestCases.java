@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -130,6 +129,8 @@ public class TestCases {
 	//------------------------------------------------------------------	
 	
 	
+	
+	
 public void fillRegistrationForm(HashMap<String, String> inputData) {
 		WebElement e = null;
 		
@@ -202,9 +203,8 @@ public void moveToSelectable() {
 	
 }
 	
-	
-	
-	
+
+
 public WebElement getElement(String locator, String value) {
 		WebElement e = null;
 		WebDriverWait wait = new WebDriverWait(d, 20);
@@ -223,9 +223,6 @@ public WebElement getElement(String locator, String value) {
 		}
 		return e;
 	}
-	
-	
-	
 
 public void moveToRegistrationForm() {
 		mouseOverOn("DemoSites");

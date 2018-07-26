@@ -1,17 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="920" started-at="2018-07-25T08:43:52Z" finished-at="2018-07-25T08:43:53Z">
+  <suite name="Suite" duration-ms="80697" started-at="2018-07-26T05:56:12Z" finished-at="2018-07-26T05:57:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="920" started-at="2018-07-25T08:43:52Z" finished-at="2018-07-25T08:43:53Z">
+    <test name="Test" duration-ms="80697" started-at="2018-07-26T05:56:12Z" finished-at="2018-07-26T05:57:33Z">
       <class name="tests.SmokeTests">
-        <test-method status="PASS" signature="getExcelData()[pri:0, instance:tests.SmokeTests@30a3107a]" name="getExcelData" duration-ms="901" started-at="2018-07-25T08:43:52Z" finished-at="2018-07-25T08:43:53Z">
+        <test-method status="PASS" signature="getExcelData()[pri:0, instance:tests.SmokeTests@51e2adc7]" name="getExcelData" duration-ms="1308" started-at="2018-07-26T05:57:31Z" finished-at="2018-07-26T05:57:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getExcelData -->
       </class> <!-- tests.SmokeTests -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="tests.TestCases">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.TestCases@7a187f14]" name="beforeMethod" is-config="true" duration-ms="11695" started-at="2018-07-26T05:56:12Z" finished-at="2018-07-26T05:56:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="Registration(java.util.HashMap)[pri:0, instance:tests.TestCases@7a187f14]" name="Registration" duration-ms="13787" started-at="2018-07-26T05:56:24Z" data-provider="inputData" finished-at="2018-07-26T05:56:37Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{firstName=Vinod, lastName=Bhavsar, country=India, maritalStatus=married, hobby=dance#reading}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Registration -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:tests.TestCases@7a187f14]" name="afterMethod" is-config="true" duration-ms="787" started-at="2018-07-26T05:56:37Z" finished-at="2018-07-26T05:56:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.TestCases@7a187f14]" name="beforeMethod" is-config="true" duration-ms="11270" started-at="2018-07-26T05:56:38Z" finished-at="2018-07-26T05:56:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="Selectable()[pri:0, instance:tests.TestCases@7a187f14]" name="Selectable" duration-ms="12866" started-at="2018-07-26T05:56:49Z" finished-at="2018-07-26T05:57:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Selectable -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:tests.TestCases@7a187f14]" name="afterMethod" is-config="true" duration-ms="765" started-at="2018-07-26T05:57:02Z" finished-at="2018-07-26T05:57:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.TestCases@7a187f14]" name="beforeMethod" is-config="true" duration-ms="10987" started-at="2018-07-26T05:57:03Z" finished-at="2018-07-26T05:57:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="VerifyDatePicker()[pri:0, instance:tests.TestCases@7a187f14]" name="VerifyDatePicker" duration-ms="14127" started-at="2018-07-26T05:57:14Z" finished-at="2018-07-26T05:57:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDatePicker -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:tests.TestCases@7a187f14]" name="afterMethod" is-config="true" duration-ms="788" started-at="2018-07-26T05:57:28Z" finished-at="2018-07-26T05:57:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- tests.TestCases -->
+      <class name="tests.APITesting">
+        <test-method status="PASS" signature="testGetAPI()[pri:0, instance:tests.APITesting@6f195bc3]" name="testGetAPI" duration-ms="2294" started-at="2018-07-26T05:57:29Z" finished-at="2018-07-26T05:57:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAPI -->
+      </class> <!-- tests.APITesting -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
