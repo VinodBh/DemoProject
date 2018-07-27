@@ -45,17 +45,16 @@ public class TestCases {
 
 	public void setDriver(String browser) {
 		switch (browser){
-			case "chrome":
-				System.setProperty("webdriver.chrome.driver", properties.getProperty("chromePath"));
-				d = new ChromeDriver();
-				break;
-			case "ie" :
-				System.setProperty("webdriver.ie.driver", properties.getProperty("iePath"));
-				d = new InternetExplorerDriver();
-				break;
+		case "chrome":
+			System.setProperty("webdriver.chrome.driver", properties.getProperty("chromePath"));
+			d = new ChromeDriver();
+			break;
+		case "ie" :
+			System.setProperty("webdriver.ie.driver", properties.getProperty("iePath"));
+			d = new InternetExplorerDriver();
+			break;
 		}
 		d.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-
 	}
 
 	public void loadConfigDetails() {
@@ -78,7 +77,7 @@ public class TestCases {
 		d.findElement(By.id("txtPassword")).sendKeys(properties.getProperty("pasword"));
 		d.findElement(By.id("btnlogin")).click();
 	}
-	
+
 //------------------------------------------------------------------
 	//@Test(enabled = true, priority = 1)
 	public void LeaveData() throws InterruptedException {
@@ -110,14 +109,13 @@ public class TestCases {
 		WebElement e = getElement("xpath", ".//a[@id='ui-id-3']");
 		e.click();
 	}
-	
+
 
 	@Test 
 	public void Selectable() {
 		moveToSelectable();
 		WebElement e = getElement("xpath", ".//a[@id='ui-id-3']");
 		e.click();
-		
 	}
 	
 	@Test (dataProvider = "inputData")
