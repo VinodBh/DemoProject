@@ -10,8 +10,6 @@ public class Runner {
 	public static void main(String[] args) {
 		SmokeTests s = new SmokeTests();
 		tcl = s.getExcelData();
-		
-		//TestListenerAdapter tla = new TestListenerAdapter();
 		TestNG testng = new TestNG();
 		List<String> suites = new ArrayList<String>();
 		suites.add("D:\\VB\\MyWorkspace\\Demo\\testng.xml");

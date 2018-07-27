@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -100,11 +100,6 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
                     <div class="method-list-content passed suite-Suite">
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="tests.TestCases" hash-for-method="Registration({firstName=Vinod, lastName=Bhavsar, country=India, maritalStatus=married, hobby=dance#reading})">Registration({firstName=Vinod, lastName=Bhavsar, country=India, maritalStatus=married, hobby=dance#reading})</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="tests.TestCases" hash-for-method="VerifyDatePicker">VerifyDatePicker</a> <!-- method navigator-link -->
@@ -128,14 +123,6 @@
               <span class="class-name">tests.TestCases</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="Registration({firstName=Vinod, lastName=Bhavsar, country=India, maritalStatus=married, hobby=dance#reading})">
-                  </a> <!-- Registration({firstName=Vinod, lastName=Bhavsar, country=India, maritalStatus=married, hobby=dance#reading}) -->
-                  <span class="method-name">Registration</span>
-                  <span class="parameters">({firstName=Vinod, lastName=Bhavsar, country=India, maritalStatus=married, hobby=dance#reading})</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="VerifyDatePicker">
@@ -206,20 +193,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Registration')
+data.setCell(0, 1, 'VerifyDatePicker')
 data.setCell(0, 2, 'tests.TestCases')
-data.setCell(0, 3, 14326);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'VerifyDatePicker')
-data.setCell(1, 2, 'tests.TestCases')
-data.setCell(1, 3, 13233);
+data.setCell(0, 3, 16423);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 27 seconds</span>
+              <span class="suite-total-time">Total running time: 16 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -234,13 +217,15 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">tests.TestCases</span>
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">Selectable</span>
+                <br/>
+                <span class="ignored-method-name">Registration</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -259,23 +244,11 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifyDatePicker</span>
-                <span class="method-start">10868 ms</span>
+                <span class="method-start">11454 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">24102 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">beforeMethod</span>
-                <span class="method-start">24837 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">Registration({firstName=Vinod, lastName=Bhavsar, country=India, maritalStatus=married, hobby=dance#reading})</span>
-                <span class="method-start">35389 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterMethod</span>
-                <span class="method-start">49715 ms</span>
+                <span class="method-start">27877 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

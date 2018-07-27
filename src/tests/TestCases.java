@@ -1,5 +1,4 @@
 package tests;
-import java.awt.Desktop.Action;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -64,8 +63,11 @@ public class TestCases {
 			properties = new Properties();
 			properties.load(reader);
 			reader.close();
+			System.out.println("##Config Properties loaded");
 		} catch (Exception e) {
+			System.out.println("##Error when loading Config Pro");
 			System.out.println(e);
+			
 		}
 	}
 
@@ -146,7 +148,6 @@ public void fillRegistrationForm(HashMap<String, String> inputData) {
 		String[] aryHobby = hobby.split("#");
 		ArrayList<String> hobbies = new ArrayList<String>(Arrays.asList(aryHobby));
 		
-				
 		for(String value : hobbies) {
 			String path1 = ".//input[@value='" + value + "']";
 			e = getElement("xpath", path1);
@@ -164,7 +165,7 @@ public void fillRegistrationForm(HashMap<String, String> inputData) {
 public Object[][] dataProvider()
 {
 	Object[][] obj = new Object[1][1];
-	HashMap<String, String> map = new HashMap();
+	HashMap<String, String> map = new HashMap<String, String>();
 	map.put("firstName", "Vinod");
 	map.put("lastName", "Bhavsar");
 	map.put("maritalStatus", "married");

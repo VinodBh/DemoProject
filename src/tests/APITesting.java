@@ -3,9 +3,6 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.gargoylesoftware.htmlunit.javascript.host.fetch.Response;
-import com.google.gson.JsonObject;
-
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 
