@@ -1,5 +1,4 @@
 package tests;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.lang.reflect.Constructor;
@@ -13,12 +12,12 @@ import org.testng.IAnnotationTransformer;
 import org.testng.annotations.ITestAnnotation;
 import org.testng.annotations.Test;
 
-public class SmokeTests implements IAnnotationTransformer {
+public class ExcelUtils {
 
 	@Test
 	public HashMap<String, String> getExcelData() {
 		HashMap<String, String> h = new HashMap<>();
-		File f = new File("D:\\VB\\TestData\\TestCases.xlsx");
+		File f = new File(TestCases.properties.getProperty("testCasespath"));
 		try {
 			FileInputStream fis = new FileInputStream (f);
 			@SuppressWarnings("resource")
@@ -36,14 +35,13 @@ public class SmokeTests implements IAnnotationTransformer {
 	}
 
 
-	@Override
+
 	public void transform(ITestAnnotation arg0, Class arg1, Constructor arg2, Method arg3) {
 		System.out.println(arg0.toString());
 		System.out.println(arg1.toString());
 		System.out.println(arg2.toString());
 		System.out.println(arg3.toString());
 		arg0.setEnabled(false);
-
 	}
 
 

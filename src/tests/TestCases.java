@@ -13,59 +13,88 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.LogStatus;
+
+import groovyjarjarasm.asm.commons.Method;
 
 
 
 public class TestCases {
-	WebDriver d;
-	Properties properties;
-		
-	@BeforeMethod
-	public void beforeMethod() {
-		loadConfigDetails();
-		setDriver(properties.getProperty("browser"));
-		d.get(properties.getProperty("testURL")); //
-		d.manage().window().maximize();
-
+	public static EventFiringWebDriver d;
+	public static Properties properties;
+	
+	@BeforeSuite
+	public void beforeSuite() {
+		EventHandler.ex = new ExtentReports(System.getProperty("user.dir") + "/test-output/ExtentReprot.html", true);
+	}
+	@AfterSuite
+	public void afterSuite() {
+		EventHandler.ex.flush();
+		EventHandler.ex.close();
 	}
 
+	@BeforeMethod
+	public void beforeMethod(ITestResult result) {
+		setDriver(properties.getProperty("browser"));
+		EventHandler.logger = EventHandler.ex.startTest(result.getMethod().getMethodName());
+		try {
+		d.get(properties.getProperty("testURL")); //
+		d.manage().window().maximize();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
 	
 	@AfterMethod
 	public void afterMethod() {
+		EventHandler.ex.endTest(EventHandler.logger);
 		d.quit();
 	}
 
+	
 	public void setDriver(String browser) {
+		WebDriver temp = null;
 		switch (browser){
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver", properties.getProperty("chromePath"));
-			d = new ChromeDriver();
+			temp = new ChromeDriver();
 			break;
 		case "ie" :
 			System.setProperty("webdriver.ie.driver", properties.getProperty("iePath"));
-			d = new InternetExplorerDriver();
+			temp = new InternetExplorerDriver();
 			break;
 		}
-		d.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		temp.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		d = new EventFiringWebDriver(temp);
+		EventHandler handler = new EventHandler();
+		d.register(handler);
 	}
 
-	public void loadConfigDetails() {
+	public static void loadConfigDetails() {
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(".//configs//Configuation.properties"));
 			properties = new Properties();
 			properties.load(reader);
 			reader.close();
-			System.out.println("##Config Properties loaded");
+			System.out.println("## Config Properties loaded");
 		} catch (Exception e) {
-			System.out.println("##Error when loading Config Pro");
+			System.out.println("## Error when loading Config Pro");
 			System.out.println(e);
 			
 		}
@@ -112,7 +141,6 @@ public class TestCases {
 		e.click();
 	}
 
-
 	@Test 
 	public void Selectable() {
 		moveToSelectable();
@@ -125,7 +153,14 @@ public class TestCases {
 		moveToRegistrationForm();
 		fillRegistrationForm(inputData);
 	}
-
+	
+	@Test (dataProvider = "inputData")
+	public void findElements(HashMap<String, String> inputData) {
+		moveToRegistrationForm();
+		fillRegistrationForm(inputData);
+	}
+	
+	
 	//------------------------------------------------------------------	
 	
 	
@@ -153,11 +188,8 @@ public void fillRegistrationForm(HashMap<String, String> inputData) {
 			e = getElement("xpath", path1);
 			e.click();
 		}
-		
 		Select s = new Select(getElement("id", "dropdown_7"));
 		s.selectByVisibleText(inputData.get("country"));
-
-		
 	}
 
 
@@ -199,29 +231,34 @@ public void moveToSelectable() {
 	}
 	clickAndMoveTo("Basic Demo Site");
 	clickOnLink("Selectable"); 
-	
 }
-	
 
 
 public WebElement getElement(String locator, String value) {
-		WebElement e = null;
-		WebDriverWait wait = new WebDriverWait(d, 20);
+	WebElement e = null;
+	WebDriverWait wait = new WebDriverWait(d, 20);
+	try {
 		switch (locator) {
 		case "id":
 			e = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(value)));
 			break;
-
 		case "xpath":
 			e = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(value)));
 			break;
-		
 		case "name":
 			e = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(value)));
 			break;
 		}
-		return e;
 	}
+	catch(Exception a) {
+		if(e == null) {
+			EventHandler.logger.log(LogStatus.FAIL, a + " " + value + " " + locator);
+			Assert.assertTrue(false);
+		}
+	}
+	return e;
+}
+
 
 public void moveToRegistrationForm() {
 		mouseOverOn("DemoSites");
@@ -235,9 +272,7 @@ public void moveToRegistrationForm() {
 		clickOnLink("Registration"); //Registration
 	}
 
-
 public void moveToDatePicker() {
-	
 	mouseOverOn("DemoSites");
 	try {
 		Thread.sleep(5000);
@@ -259,7 +294,6 @@ public void moveToDatePicker() {
 	public void clickAndMoveTo(String lnkName) {
 		WebElement e = getElement("xpath", ".//span[@class='text-wrap']//span[@class='menu-text'][text()='" + lnkName + "']");
 		e.click();
-		
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException ex) {
@@ -282,10 +316,6 @@ public void moveToDatePicker() {
 }
 	
 	
-	
-	
-	
-
 
 	
 }

@@ -12,7 +12,6 @@ public class MyTransformer implements IAnnotationTransformer {
 		String temp = arg3.getName();
 		for (String s : Runner.tcl.keySet()) {
 			if(temp.equals(s)) {
-				
 				if(Runner.tcl.get(s).equalsIgnoreCase("No")){
 					arg0.setEnabled(false);
 				}	

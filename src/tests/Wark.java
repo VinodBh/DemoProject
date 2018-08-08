@@ -14,18 +14,11 @@ public class Wark extends Animal {
 	public String eat(int a) {
 		System.out.println("Wark = eat with int");
 		return null;
-		
 	}
 	
 	public void walk(String a) {
 		System.out.println("Wark - Walk with string");
 	}
-	
-	
-	
-	
-	
-	
-	
 
+	
 }
